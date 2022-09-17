@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="465.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.DownloadManager">
+   <children>
+      <BorderPane layoutX="99.0" layoutY="63.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="TOP_CENTER">
+               <children>
+                  <Text fontSmoothingType="LCD" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="My Download Manager" textAlignment="CENTER" textOrigin="CENTER">
+                     <font>
+                        <Font name="Bell MT" size="35.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <effect>
+                        <Glow />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="N_RESIZE" />
+                     </cursor>
+                  </Text>
+                  <TextField fx:id="urlTextField" prefHeight="25.0" prefWidth="730.0" promptText="Enter Download URL Here.....">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="15.0" right="15.0" top="20.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="15.0" right="5.0" top="5.0" />
+                     </padding>
+                  </TextField>
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnDownloadClicked" text="Start Download" textFill="#278f04" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Bell MT Bold" size="26.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                     </padding>
+                     <cursor>
+                        <Cursor fx:constant="DISAPPEAR" />
+                     </cursor>
+                  </Button>
+                  <TableView fx:id="tableView" minHeight="-Infinity" prefHeight="327.0" prefWidth="730.0">
+                    <columns>
+                      <TableColumn editable="false" maxWidth="100.0" minWidth="60.0" resizable="false" text="Sr. No" />
+                        <TableColumn maxWidth="450.0" minWidth="200.0" prefWidth="250.0" text="File Name" />
+                        <TableColumn maxWidth="450.0" minWidth="150.0" prefWidth="300.0" text="File URL" />
+                        <TableColumn maxWidth="300.0" minWidth="100.0" prefWidth="200.0" text="Status" />
+                        <TableColumn maxWidth="200.0" minWidth="100.0" prefWidth="150.0" text="Actions" />
+                    </columns>
+                     <VBox.margin>
+                        <Insets left="15.0" right="15.0" top="20.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </opaqueInsets>
+                     <effect>
+                        <Lighting diffuseConstant="1.41" light="$null" specularConstant="0.16" specularExponent="1.61" surfaceScale="1.73">
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                        </Lighting>
+                     </effect>
+                  </TableView>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="DISAPPEAR" />
+               </cursor>
+            </VBox>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
