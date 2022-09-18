@@ -1,5 +1,6 @@
 package org.example;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -9,6 +10,7 @@ import org.config.AppConfig;
 import org.models.FileInfo;
 
 import java.io.File;
+import java.text.DecimalFormat;
 
 public class DownloadManager {
 
@@ -24,7 +26,7 @@ public class DownloadManager {
         String status = "STARTING...";
         String action = "OPEN";
         String path = AppConfig.DOWNLOAD_PATH + File.separator + filename;
-        FileInfo file = new FileInfo((index+1)+"",filename,url,status,action,path);
+        FileInfo file = new FileInfo((index+1)+"",filename,url,status,action,path,"0");
         this.index = this.index +1;
         DownloadThread thread = new DownloadThread(file, this);
         this.tableView.getItems().add(Integer.parseInt(file.getIndex())-1,file);
@@ -37,6 +39,8 @@ public class DownloadManager {
         System.out.println(metaFile);
         FileInfo fileInfo = this.tableView.getItems().get(Integer.parseInt(metaFile.getIndex()) - 1);
         fileInfo.setStatus(metaFile.getStatus());
+        DecimalFormat decimalFormat = new DecimalFormat("0.0");
+        fileInfo.setPerc(decimalFormat.format(Double.parseDouble(metaFile.getPerc())));
         this.tableView.refresh();
         System.out.println("-----------------------------------");
     }
@@ -65,9 +69,16 @@ public class DownloadManager {
             return p.getValue().statusProperty();
         });
 
-        TableColumn<FileInfo, String> action = (TableColumn<FileInfo, String>) this.tableView.getColumns().get(4);
+        TableColumn<FileInfo, String> action = (TableColumn<FileInfo, String>) this.tableView.getColumns().get(5);
         action.setCellValueFactory(p->{
             return p.getValue().actionProperty();
+        });
+
+        TableColumn<FileInfo, String> perc = (TableColumn<FileInfo, String>) this.tableView.getColumns().get(4);
+        perc.setCellValueFactory(p->{
+            SimpleStringProperty simpleStringProperty = new SimpleStringProperty();
+            simpleStringProperty.set(p.getValue().getPerc() + " %");
+            return simpleStringProperty;
         });
 
 

@@ -11,13 +11,17 @@ public class FileInfo {
     private SimpleStringProperty action=new SimpleStringProperty();
 
     private SimpleStringProperty path=new SimpleStringProperty();
-    public FileInfo(String index, String name, String url, String status, String action, String path) {
+
+    private SimpleStringProperty perc = new SimpleStringProperty();
+
+    public FileInfo(String index, String name, String url, String status, String action, String path,String perc) {
         this.index.set(index);
         this.name.set(name);
         this.url.set(url);
         this.status.set(status);
         this.action.set(action);
         this.path.set(path);
+        this.perc.set(perc);
     }
 
 
@@ -91,6 +95,18 @@ public class FileInfo {
 
     public void setPath(String path) {
         this.path.set(path);
+    }
+
+    public String getPerc() {
+        return perc.get();
+    }
+
+    public SimpleStringProperty percProperty() {
+        return perc;
+    }
+
+    public void setPerc(String perc) {
+        this.perc.set(perc);
     }
 
     @Override

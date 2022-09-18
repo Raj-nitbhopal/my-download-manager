@@ -63,9 +63,10 @@
                   <TableView fx:id="tableView" minHeight="-Infinity" prefHeight="327.0" prefWidth="730.0">
                     <columns>
                       <TableColumn editable="false" maxWidth="100.0" minWidth="60.0" resizable="false" text="Sr. No" />
-                        <TableColumn maxWidth="450.0" minWidth="200.0" prefWidth="250.0" text="File Name" />
-                        <TableColumn maxWidth="450.0" minWidth="150.0" prefWidth="300.0" text="File URL" />
+                        <TableColumn maxWidth="400.0" minWidth="200.0" prefWidth="250.0" text="File Name" />
+                        <TableColumn maxWidth="400.0" minWidth="150.0" prefWidth="300.0" text="File URL" />
                         <TableColumn maxWidth="300.0" minWidth="100.0" prefWidth="200.0" text="Status" />
+                        <TableColumn maxWidth="250.0" minWidth="100.0" prefWidth="200.0" text="\% Completed" />
                         <TableColumn maxWidth="200.0" minWidth="100.0" prefWidth="150.0" text="Actions" />
                     </columns>
                      <VBox.margin>
